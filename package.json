@@ -18,6 +18,7 @@
   "homepage": "https://github.com/yunyouu/durga#readme",
   "dependencies": {
     "axios": "^0.22.0",
-    "dayjs": "^1.10.7"
+    "dayjs": "^1.10.7",
+    "log4js": "^6.3.0"
   }
 }
