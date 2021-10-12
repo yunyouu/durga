@@ -13,12 +13,10 @@ log4js.configure({
       maxLogSize: 10 * 1024 * 1024, // = 10Mb
       compress: true,
       encoding: "utf-8",
-      mode: 0o0640,
-      flags: "w+",
     },
   },
   categories: {
-    default: { appenders: ["file"], level: "info" },
+    default: { appenders: ["file"], level: "debug" },
   },
 });
 
