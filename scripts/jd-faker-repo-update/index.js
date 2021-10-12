@@ -6,7 +6,7 @@ dayjs.extend(utc);
 const exec = require("child_process").exec;
 
 request.get("https://api.github.com/repos/shufflewzc/faker2").then((res) => {
-  const updated_at = res.data;
+  const { updated_at } = res.data;
   // 更新时间在五分钟之内
 
   console.log("更新时间为" + updated_at);
@@ -20,7 +20,7 @@ request.get("https://api.github.com/repos/shufflewzc/faker2").then((res) => {
         if (err) {
           console.error("青龙更新失败");
         } else {
-            console.error("青龙更新成功");
+          console.error("青龙更新成功");
         }
       }
     );
