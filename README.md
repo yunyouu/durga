@@ -5,7 +5,7 @@
 ## 服务器初始化
 
 ```
-sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/server-initial-ubuntu20.04/server-initial-ubuntu20.04.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/scripts/server-initial-ubuntu20.04/server-initial-ubuntu20.04.sh)"
 ```
 
 ## 应用配置更新
