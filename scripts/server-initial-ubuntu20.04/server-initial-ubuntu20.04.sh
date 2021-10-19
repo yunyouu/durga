@@ -10,7 +10,7 @@ curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/configurat
 
 read -p "是否需要安装 Docker 相关环境？（y/n 默认 n）" IS_Docker_ENV
 
-if $IS_Docker_ENV == "y"
+if [ $IS_Docker_ENV = "y" ]; then
     
     # 清理 docker 历史包以及安装下面需要用到的工具包
     sudo apt-get remove --autoremove --purge docker docker-engine docker.io containerd runc -y
