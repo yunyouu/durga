@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# 刷新一下数据源同时更新一下本地包
+sudo apt-get update -y && apt-get upgrade -y
+# 安装系统使用基础包
+sudo apt-get install apt-transport-https ca-certificates gnupg lsb-release -y
+
+# 安装常用的扩展应用
+sudo apt-get install curl unzip git net-tools htop neofetch cpulimit -y
+
+# 安装 vim 并且使用预制好的配置文件
+sudo apt-get install vim
+sudo curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/configuration/vim/.vimrc
+
+# 安装 zsh 以及配置 ohmyzsh
+sudo apt-get install zsh -y
+# 运行时同意切换到 zsh
+echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# 使用自己配置的配置文件，配置项较多之后再采取 vim 配置文件的做法
+sudo cat > ~/.zshrc <<EOF
+export ZSH="/root/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+
+plugins=(git extract)
+
+source $ZSH/oh-my-zsh.sh
+export LC_CTYPE=en_US.UTF-8
+EOF
+
+# 删除官方脚本预装的 snapd
+sudo apt-get autoremove --purge snapd
+
+# 最后清理一下包
+sudo apt-get clean && sudo apt-get autoremove

@@ -16,8 +16,8 @@ services:
       - /opt/qbittorrent/config:/config
       - /opt/qbittorrent/downloads:/downloads
     ports:
-      - 6881:6881
-      - 6881:6881/udp
+      - 32671:32671
+      - 32671:32671/udp
       - 8080:8080
     restart: unless-stopped
 EOF

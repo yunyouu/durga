@@ -2,40 +2,28 @@
 
 👻 常用配置文件备份、加速下载以及使用文档
 
-## 服务器初始化
+## 环境初始化脚本
 
+### Ubuntu 系统个人配置初始化
+1. 更新系统包
+2. 安装常用应用
+3. 配置 zsh
 ```
-sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/scripts/server-initial-ubuntu20.04/server-initial-ubuntu20.04.sh)"
-```
-
-## 应用配置更新
-
-以下有些配置会包含在应用初始化当中，也有其他一些应用列表。
-
-### `vim` 配置
-
-1. 直接访问 github raw
-
-```
-wget -O ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/configuration/vim/.vimrc
+sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environment_scripts/server-initial-base-ubuntu.sh)"
 ```
 
-2. 国内加速脚本地址
-
+### Ubuntu 安装 docker 环境
+1. 安装 docker-ce
+2. 安装 docker-compose
 ```
-wget -O ~/.vimrc https://raw.fastgit.org/yunyouu/durga/main/configuration/vim/.vimrc
-```
-
-## 使用 docker-compose 安装 qbittorrent
-
-1. 直接访问 github raw
-
-```
-curl -L https://raw.githubusercontent.com/yunyouu/durga/main/scripts/do-qbittorrent-docker-compose/do-qbittorrent-docker-compose.sh | bash
+sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environment_scripts/server-initial-docker-ubuntu.sh)"
 ```
 
-2. 国内加速脚本地址
+## 应用配置脚本
 
+### docker-compose 安装 qbittorrent
+- webui 端口 8080
+- 上传端口固定 32671 ，需要启动后在面板调整到对应
 ```
-curl -L https://raw.fastgit.org/yunyouu/durga/main/scripts/do-qbittorrent-docker-compose/do-qbittorrent-docker-compose.sh | bash
+curl -L https://raw.githubusercontent.com/yunyouu/durga/main/application_scripts/do-qbittorrent-docker-compose.sh | bash
 ```
