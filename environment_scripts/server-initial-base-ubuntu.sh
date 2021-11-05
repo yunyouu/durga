@@ -19,12 +19,14 @@ echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/m
 # 使用自己配置的配置文件，配置项较多之后再采取 vim 配置文件的做法
 sudo cat > ~/.zshrc <<EOF
 export ZSH="/root/.oh-my-zsh"
+export LC_CTYPE=en_US.UTF-8
+
 ZSH_THEME="robbyrussell"
+DISABLE_AUTO_UPDATE="true"
 
 plugins=(git extract)
 
 source $ZSH/oh-my-zsh.sh
-export LC_CTYPE=en_US.UTF-8
 EOF
 
 # 删除官方脚本预装的 snapd
