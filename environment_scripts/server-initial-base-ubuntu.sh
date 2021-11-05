@@ -32,5 +32,8 @@ EOF
 # 删除官方脚本预装的 snapd
 sudo apt-get autoremove --purge snapd
 
+# 设置服务器时区为上海
+sudo timedatectl set-timezone 'Asia/Shanghai'
+
 # 最后清理一下包
 sudo apt-get clean && sudo apt-get autoremove
