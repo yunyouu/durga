@@ -26,7 +26,7 @@ DISABLE_AUTO_UPDATE="true"
 
 plugins=(git extract)
 
-source $ZSH/oh-my-zsh.sh
+source ~/.oh-my-zsh/oh-my-zsh.sh
 EOF
 
 # 删除官方脚本预装的 snapd
