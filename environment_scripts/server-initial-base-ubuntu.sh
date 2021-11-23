@@ -24,7 +24,7 @@ export LC_CTYPE=en_US.UTF-8
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
 
-plugins=(git extract)
+plugins=(extract)
 
 source ~/.oh-my-zsh/oh-my-zsh.sh
 EOF
