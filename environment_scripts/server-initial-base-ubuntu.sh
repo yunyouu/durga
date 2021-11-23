@@ -14,8 +14,8 @@ sudo curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/confi
 
 # 安装 zsh 以及配置 ohmyzsh
 sudo apt-get install zsh -y
-# 运行时同意切换到 zsh
-echo y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# 无人值守安装 ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 # 使用自己配置的配置文件，配置项较多之后再采取 vim 配置文件的做法
 sudo cat > ~/.zshrc <<EOF
 export ZSH="/root/.oh-my-zsh"
@@ -37,3 +37,7 @@ sudo timedatectl set-timezone 'Asia/Shanghai'
 
 # 最后清理一下包
 sudo apt-get clean && sudo apt-get autoremove
+
+
+# 最后的最后，设置 zsh 为默认 shell，并且切换到 zsh
+chsh -s $(which zsh) && zsh
