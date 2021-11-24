@@ -9,7 +9,7 @@ sudo apt-get install apt-transport-https ca-certificates gnupg lsb-release -y
 sudo apt-get install curl unzip git net-tools htop neofetch cpulimit -y
 
 # 安装 vim 并且使用预制好的配置文件
-sudo apt-get install vim
+sudo apt-get install vim -y
 sudo curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/configuration/vim/.vimrc
 
 # 安装 zsh 以及配置 ohmyzsh
