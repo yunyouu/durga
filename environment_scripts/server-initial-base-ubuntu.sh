@@ -38,6 +38,17 @@ sudo timedatectl set-timezone 'Asia/Shanghai'
 # 最后清理一下包
 sudo apt-get clean && sudo apt-get autoremove
 
+# 添加 BBR 模块
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+
+sysctl -p
+
+# 写入个人用的公玥
+mkdir ~/.ssh && chmod 700 ~/.ssh
+touch ~/.ssh && touch authorized_keys && chmod 600 authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZuMeivqcvRV+KkjD+RLPztGUGecAqouWbo2JYUHdS8oIZi65pHk3KlCTeqr/0LxKx4+8kNxUx12O5C08jij8IktrWdVsQ36j+wcfLH2eEco0JyJ6ijcmD5g8911yP5m8gMGpg8++SL41m9xtMG/bNxfvceMhdd6U1tSiFsFNklL0F0AN9Olvg5Or6lw5juRMhEV7L2AxxeCjvkNn+g5M5MaY2shCaTUw8cue9fo/bY2PS9WF6bf5/CRMrU83qSS7/CE6BP/IUWjw5/uPFP7GogMXPMt8D9W8yhleSkgXWJelZT7CQ58v9hCx9lOXwdg4rPhCKFn94GVsFk4KTuTtP root@self-host" >> authorized_keys
+
 
 # 最后的最后，设置 zsh 为默认 shell，并且切换到 zsh
 chsh -s $(which zsh) && zsh
