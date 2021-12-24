@@ -6,7 +6,7 @@ sudo apt-get update -y && apt-get upgrade -y
 sudo apt-get install apt-transport-https ca-certificates gnupg lsb-release -y
 
 # 安装常用的扩展应用
-sudo apt-get install curl unzip git net-tools htop neofetch cpulimit -y
+sudo apt-get install curl unzip git net-tools htop neofetch lrzsz -y
 
 # 安装 vim 并且使用预制好的配置文件
 sudo apt-get install vim -y
