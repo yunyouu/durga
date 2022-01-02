@@ -4,19 +4,19 @@
 
 ## 环境初始化脚本
 
-### Ubuntu 系统个人配置初始化
+### Ubuntu 及 Debian 系统个人配置初始化
 1. 更新系统包
 2. 安装常用应用
 3. 配置 zsh
 ```
-sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environment_scripts/server-initial-base-ubuntu.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environment_scripts/server-initial-base.sh)"
 ```
 
-### Ubuntu 安装 docker 环境
+### Ubuntu 及 Debian 安装 docker 环境
 1. 安装 docker-ce
 2. 安装 docker-compose
 ```
-sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environment_scripts/server-initial-docker-ubuntu.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environment_scripts/server-initial-docker.sh)"
 ```
 
 ## 应用配置脚本
