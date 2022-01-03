@@ -15,7 +15,7 @@ curl -o ~/.vimrc https://raw.nzk.im/yunyouu/durga/main/configuration/vim/.vimrc
 # 安装 zsh 以及配置 ohmyzsh
 apt-get install zsh -y
 # 无人值守安装 ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed 's/https:\/\/github.com/https:\/\/hub.nzk.im/')" "" --unattended
+sh -c "$(curl -fsSL https://raw.nzk.im/ohmyzsh/ohmyzsh/master/tools/install.sh | sed 's/https:\/\/github.com/https:\/\/hub.nzk.im/')" "" --unattended
 # 使用自己配置的配置文件，配置项较多之后再采取 vim 配置文件的做法
 cat > ~/.zshrc <<EOF
 export ZSH="/root/.oh-my-zsh"
@@ -29,8 +29,20 @@ plugins=(extract)
 source ~/.oh-my-zsh/oh-my-zsh.sh
 EOF
 
-# 删除官方脚本预装的 snapd
-apt-get autoremove --purge snapd -y
+cat > /etc/ssh/sshd_config <<EOF
+Include /etc/ssh/sshd_config.d/*.conf
+Port 925
+PermitRootLogin yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+PasswordAuthentication no
+ChallengeResponseAuthentication no
+UsePAM no
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+EOF
 
 # 设置服务器时区为上海
 timedatectl set-timezone 'Asia/Shanghai'
@@ -51,3 +63,5 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZuMeivqcvRV+KkjD+RLPztGUGecAqouWbo2
 
 # 最后的最后，设置 zsh 为默认 shell，并且切换到 zsh
 chsh -s $(which zsh) && zsh
+
+systemctl restart sshd
