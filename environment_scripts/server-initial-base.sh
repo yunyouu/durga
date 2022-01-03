@@ -10,12 +10,12 @@ apt-get install curl unzip git net-tools htop neofetch lrzsz -y
 
 # 安装 vim 并且使用预制好的配置文件
 apt-get install vim -y
-curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/configuration/vim/.vimrc
+curl -o ~/.vimrc https://raw.nzk.im/yunyouu/durga/main/configuration/vim/.vimrc
 
 # 安装 zsh 以及配置 ohmyzsh
 apt-get install zsh -y
 # 无人值守安装 ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sed 's/https:\/\/github.com/https:\/\/hub.nzk.im/')" "" --unattended
 # 使用自己配置的配置文件，配置项较多之后再采取 vim 配置文件的做法
 cat > ~/.zshrc <<EOF
 export ZSH="/root/.oh-my-zsh"
