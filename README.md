@@ -9,14 +9,14 @@
 2. 安装常用应用
 3. 配置 zsh
 ```
-sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environment_scripts/server-initial-base.sh)"
+sh -c "$(wget -O- https://raw.nzk.im/yunyouu/durga/main/environment_scripts/server-initial-base.sh)"
 ```
 
 ### Ubuntu 及 Debian 安装 docker 环境
 1. 安装 docker-ce
 2. 安装 docker-compose
 ```
-sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environment_scripts/server-initial-docker.sh)"
+sh -c "$(wget -O- https://raw.nzk.im/yunyouu/durga/main/environment_scripts/server-initial-docker.sh)"
 ```
 
 ## 应用配置脚本
@@ -25,5 +25,5 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/environme
 - webui 端口 8080
 - 上传端口固定 32671 ，需要启动后在面板调整到对应
 ```
-curl -L https://raw.githubusercontent.com/yunyouu/durga/main/application_scripts/do-qbittorrent-docker-compose.sh | bash
+curl -L https://raw.nzk.im/yunyouu/durga/main/application_scripts/do-qbittorrent-docker-compose.sh | bash
 ```
