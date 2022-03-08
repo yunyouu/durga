@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# docker-compose 启动 qbittorrent
+# docker-compose 启动 qbittorrent，并且使用 host 网络模式。当前镜像不支持仅 IPv6
 sudo mkdir /opt/qbittorrent
 sudo cat > /opt/qbittorrent/docker-compose.yaml <<EOF
 version: "3.9"
@@ -15,10 +15,7 @@ services:
     volumes:
       - /opt/qbittorrent/config:/config
       - /opt/qbittorrent/downloads:/downloads
-    ports:
-      - 32671:32671
-      - 32671:32671/udp
-      - 8080:8080
+    network_mode: "host"
     restart: unless-stopped
 EOF
 cd /opt/qbittorrent && sudo docker-compose up -d
