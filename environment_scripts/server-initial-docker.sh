@@ -15,4 +15,4 @@ systemctl start docker && systemctl enable docker
 
 # 安装 docker-compose
 sudo curl -L "https://hub.nzk.im/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-suro chmod +x /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
