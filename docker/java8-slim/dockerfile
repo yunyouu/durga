@@ -1,0 +1,53 @@
+FROM lwieske/java-8:jdk-8u202-slim
+
+# 基于 lwieske/java-8:jdk-8u202-slim 重新构建，添加中文支持、调整时区为 Asia/Shanghai
+MAINTAINER yanglwr <keepging@outlook.com>
+
+RUN echo -e "\
+en_AG\n\
+en_AU\n\
+en_BW\n\
+en_CA\n\
+en_DK\n\
+en_GB\n\
+en_HK\n\
+en_IE\n\
+en_IN\n\
+en_NG\n\
+en_NZ\n\
+en_PH\n\
+en_SG\n\
+en_US\n\
+en_ZA\n\
+en_ZM\n\
+en_ZW\n\
+zh_CN\n\
+zh_HK\n\
+zh_SG\n\
+zh_TW\n\
+zu_ZA\
+" > /locale.md
+
+RUN apk update \
+    && apk add tzdata \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && apk del tzdata \
+    && apk --no-cache add ca-certificates wget \
+    && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
+    && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-2.25-r0.apk \
+        https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-bin-2.25-r0.apk \
+        https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-i18n-2.25-r0.apk \
+    && apk add glibc-bin-2.25-r0.apk glibc-i18n-2.25-r0.apk glibc-2.25-r0.apk \
+    && sleep 3 \
+    && cat /locale.md | xargs -i /usr/glibc-compat/bin/localedef -i {} -f UTF-8 {}.UTF-8 \
+    && rm /etc/apk/keys/sgerrand.rsa.pub \
+    && rm /locale.md \
+        glibc-2.25-r0.apk \
+        glibc-bin-2.25-r0.apk \
+        glibc-i18n-2.25-r0.apk \
+    && apk del wget  ca-certificates\
+    && rm -rf /var/cache/apk/* \
+    && rm "/root/.wget-hsts"
+
+ENV LANG=zh_CN.UTF-8 \
+    LANGUAGE=zh_CN.UTF-8
