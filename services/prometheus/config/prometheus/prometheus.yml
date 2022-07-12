@@ -1,0 +1,19 @@
+global:
+  scrape_interval:     15s # By default, scrape targets every 15 seconds.
+  evaluation_interval: 15s # By default, scrape targets every 15 seconds.
+
+  external_labels:
+    monitor: 'bubu100'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # 节点监控使用文件发现
+  - job_name: 'node-exporter'
+    file_sd_configs:
+    - files:
+      - /file_sd/*.yml
+      refresh_interval: 2m
