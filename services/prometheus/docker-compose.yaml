@@ -5,6 +5,7 @@ networks:
 
 services:
   prometheus:
+    container_name: prometheus
     image: prom/prometheus:v2.36.2
     user: "0:0"
     volumes:
@@ -23,6 +24,7 @@ services:
     restart: always
 
   grafana:
+    container_name: grafana
     image: grafana/grafana:9.0.2
     user: "0:0"
     depends_on:
