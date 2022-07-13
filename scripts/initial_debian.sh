@@ -11,7 +11,7 @@ sudo apt-get install curl unzip git net-tools htop neofetch lrzsz -y
 
 # 安装 vim 并且使用预制好的配置文件
 sudo apt-get install vim -y
-sudo curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/.vimrc
+sudo curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
 
 # 安装 zsh 以及配置 ohmyzsh
 sudo apt-get install zsh -y
