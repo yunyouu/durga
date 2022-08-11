@@ -1,18 +1,31 @@
-#### DURGA 个人脚本仓库
+本仓库主要会包含以下内容：
+- 📦 自己打包的 `docker` 镜像 `dockerfile` 文件
+- 📒 `Linux` 常用的基础工具配置文件信息
+- 🐎 `Linux` 常使用的通用脚本，服务器可以直接使用
+- 🚌 实际使用过后整理下来的编排脚本 + 配置文件（`docker-compose`）
+---
+#### 🍉 `Debian11`、`Ubuntu20.04` 系统初始化环境，包含以下内容：
+1. 系统更新（`apt update && apt upgrade`），基础环境安装
+2. `zsh`、`oh-mys-zsh` 安装，设置默认 `shell` 为 zsh
+3. `ssh` 使用 `back_sea` 密钥登录，端口设置为 925（所以这个脚本基本就是给我自己用的）
 
-👻 常用系统初始化、软件编排、系统备份脚本
-
-1. debian、ubuntu 系统初始化
+- github raw 下载
 ```
 wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/scripts/initial_debian.sh | bash
 ```
 
-2. docker-compose 安装 Loki 日志手机系统
-- loki 日志存储
-- promtail 通过 docker.sock 收集汇总容器内部日志
-- grafana 日志查询
+- fastgit 国内下载
 ```
-git clone https://github.com/yunyouu/durga && mv ./services/loki /opt/
+wget -O- https://raw.fastgit.org/yunyouu/durga/main/scripts/initial_debian.sh | bash
+```
 
-cd /opt/loki && docker-compose up -d
+#### 📓 常用的 `VIM` 配置整理到一起，直接本地覆盖使用
+- github raw 下载
+```
+wget -O ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
+```
+
+- fastgit 国内下载
+```
+wget -O ~/.vimrc https://raw.fastgit.org/yunyouu/durga/main/config/.vimrc
 ```
