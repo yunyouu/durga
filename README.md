@@ -7,25 +7,16 @@
 #### 🍉 `Debian11`、`Ubuntu20.04` 系统初始化环境，包含以下内容：
 1. 系统更新（`apt update && apt upgrade`），基础环境安装
 2. `zsh`、`oh-mys-zsh` 安装，设置默认 `shell` 为 zsh
-3. `ssh` 使用 `back_sea` 密钥登录，端口设置为 925（所以这个脚本基本就是给我自己用的）
+3. 安装 `docker`、`docker-compose`
+4. `ssh` 使用 `back_sea` 密钥登录，端口设置为 925（所以这个脚本基本就是给我自己用的）
 
 - github raw 下载
 ```
 wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/scripts/initial_debian.sh | bash
 ```
 
-- fastgit 国内下载
-```
-wget -O- https://raw.fastgit.org/yunyouu/durga/main/scripts/initial_debian.sh | bash
-```
-
 #### 📓 常用的 `VIM` 配置整理到一起，直接本地覆盖使用
 - github raw 下载
 ```
 wget -O ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
-```
-
-- fastgit 国内下载
-```
-wget -O ~/.vimrc https://raw.fastgit.org/yunyouu/durga/main/config/.vimrc
 ```
