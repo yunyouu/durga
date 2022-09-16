@@ -10,9 +10,14 @@
 3. 安装 `docker`、`docker-compose`
 4. `ssh` 使用 `back_sea` 密钥登录，端口设置为 925（所以这个脚本基本就是给我自己用的）
 
-- github raw 下载
+- Debian x86 初始化环境
 ```
-wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/scripts/initial_debian.sh | bash
+wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/debian-self-initital-x86.sh | bash
+```
+
+- Ubuntu x86 初始化环境
+```
+wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/ubuntu-self-initital-x86.sh | bash
 ```
 
 #### 📓 常用的 `VIM` 配置整理到一起，直接本地覆盖使用

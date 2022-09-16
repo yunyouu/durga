@@ -1,7 +1,6 @@
 " 开启语法高亮
 syntax on
 
-
 " history存储容量
 set history=2000
 
