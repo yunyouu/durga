@@ -2,7 +2,7 @@
 apt install apt-transport-https ca-certificates gnupg lsb-release sudo -y
 
 # 刷新一下数据源同时更新一下本地包
-apt update -y && apt upgrade -y
+DEBIAN_FRONTEND="noninteractive" apt update -y && DEBIAN_FRONTEND="noninteractive" apt upgrade -y
 # 安装系统使用基础包
 
 # 安装常用的扩展应用
@@ -16,8 +16,7 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-apt update
-apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+apt update && apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 
 # 安装 vim 并且使用预制好的配置文件
 apt install vim -y
@@ -51,7 +50,6 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 EOF
 
 cat > /etc/ssh/sshd_config <<EOF
-Include /etc/ssh/sshd_config.d/*.conf
 Port 925
 PermitRootLogin yes
 PubkeyAuthentication yes
