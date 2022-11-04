@@ -1,5 +1,9 @@
 #!/bin/bash
-apt install apt-transport-https ca-certificates gnupg lsb-release sudo -y
+apt install apt-transport-https ca-certificates gnupg lsb-release sudo debian-keyring debian-archive-keyring apt-transport-https -y
+
+# 添加 caddy 源
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
 
 # 刷新一下数据源同时更新一下本地包
 apt update -y && apt upgrade -y
