@@ -7,4 +7,4 @@ apt install vim -y
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
 
-vim -e +PluginInstall +qall
+exec vim "+PluginInstall" "+qall" "$@" < /dev/tty
