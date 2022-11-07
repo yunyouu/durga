@@ -12,16 +12,16 @@
 
 - Debian x64 初始化环境
 ```
-wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/debian-self-initital-x64.sh | bash
+wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/initialize-debian-x64.sh | bash
 ```
 
 - Ubuntu x64 初始化环境
 ```
-wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/ubuntu-self-initital-x64.sh | bash
+wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/initialize-ubuntu-x64.sh | bash
 ```
 
 #### 📓 常用的 `VIM` 配置整理到一起，直接本地覆盖使用
 - github raw 下载
 ```
-wget -O ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
+wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/initialize-vim-x64.sh | bash
 ```
