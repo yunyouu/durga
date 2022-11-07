@@ -24,7 +24,6 @@ set noswapfile
 " 突出显示当前行
 set cursorline
 
-
 " 显示当前的行号列号
 set ruler
 " 在状态栏显示正在输入的命令
@@ -35,10 +34,6 @@ set showmode
 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
 set scrolloff=7
 
-
-
-" 显示行号
-set number
 " 取消换行
 set nowrap
 
@@ -46,7 +41,6 @@ set nowrap
 set showmatch
 " How many tenths of a second to blink when matching brackets
 set matchtime=2
-
 
 " 设置文内智能搜索提示
 " 高亮search命中的文本
@@ -73,16 +67,15 @@ set foldlevel=99
 " Smart indent
 set smartindent
 " 打开自动缩进
-" never add copyindent, case error   " copy the previous indentation on autoindenting
 set autoindent
 
 " tab相关变更
 " 设置Tab键的宽度        [等同的空格个数]
-set tabstop=4
+set tabstop=2
 " 每一次缩进对应的空格数
-set shiftwidth=4
+set shiftwidth=2
 " 按退格键时可以一次删掉 4 个空格
-set softtabstop=4
+set softtabstop=2
 " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
 set smarttab
 " 将Tab自动转化成空格[需要输入真正的Tab键时，使用 Ctrl+V + Tab]
@@ -94,10 +87,11 @@ set shiftround
 " 设置新文件的编码为 UTF-8
 set encoding=utf-8
 " 自动判断编码时，依次尝试以下编码：
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=utf-8,ucs-bom,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set helplang=cn
-"set langmenu=zh_CN.UTF-8
-"set enc=2byte-gb18030
+
+set langmenu=zh_CN.UTF-8
+" set enc=2byte-gb18030
 " 下面这句只影响普通模式 (非图形界面) 下的 Vim
 set termencoding=utf-8
 
