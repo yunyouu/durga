@@ -28,9 +28,6 @@ apt install vim -y
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
 
-exec vim "+PluginInstall" "+qall" "$@" < /dev/tty
-
-
 # 安装 zsh 以及配置 ohmyzsh
 apt install zsh -y
 # 无人值守安装 ohmyzsh
@@ -76,7 +73,7 @@ EOF
 timedatectl set-timezone 'Asia/Shanghai'
 
 # 最后清理一下包
-apt clean -y && apt autoremove -y
+apt clean -y && apt autoremove --purge -y
 
 # 添加 BBR 模块
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
