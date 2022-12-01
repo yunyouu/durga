@@ -1,13 +1,14 @@
 #!/bin/bash
+
+# 刷新一下数据源同时更新一下本地包
+apt update -y && apt upgrade -y
+# 安装系统使用基础包
 apt install apt-transport-https ca-certificates gnupg lsb-release sudo debian-keyring debian-archive-keyring apt-transport-https -y
 
 # 添加 caddy 源
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
 
-# 刷新一下数据源同时更新一下本地包
-apt update -y && apt upgrade -y
-# 安装系统使用基础包
 
 # 安装常用的扩展应用
 apt install curl unzip git net-tools htop neofetch lrzsz tmux -y
@@ -56,6 +57,9 @@ plugins=(extract)
 source ~/.oh-my-zsh/oh-my-zsh.sh
 EOF
 
+# 设置 zsh 为默认 shell，并且切换到 zsh
+chsh -s $(which zsh) && zsh && source ~/.zshrc
+
 cat > /etc/ssh/sshd_config <<EOF
 Include /etc/ssh/sshd_config.d/*.conf
 Port 925
@@ -90,8 +94,5 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZuMeivqcvRV+KkjD+RLPztGUGecAqouWbo2
 
 # 删除 root 账号密码并且只允许密钥登录
 passwd -d root
-
-# 最后的最后，设置 zsh 为默认 shell，并且切换到 zsh
-chsh -s $(which zsh) && zsh
 
 systemctl restart sshd
