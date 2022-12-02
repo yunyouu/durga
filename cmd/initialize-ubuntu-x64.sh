@@ -58,7 +58,8 @@ source ~/.oh-my-zsh/oh-my-zsh.sh
 EOF
 
 # 设置 zsh 为默认 shell，并且切换到 zsh
-chsh -s $(which zsh) && zsh && source ~/.zshrc
+chsh -s $(which zsh)
+zsh && source ~/.zshrc
 
 cat > /etc/ssh/sshd_config <<EOF
 Include /etc/ssh/sshd_config.d/*.conf
