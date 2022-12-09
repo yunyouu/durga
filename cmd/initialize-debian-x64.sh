@@ -38,8 +38,6 @@ cat > /etc/locale.gen << EOF
 en_US.UTF-8 UTF-8
 EOF
 
-locale-gen
-
 cat > ~/.zshrc << EOF
 export ZSH="/root/.oh-my-zsh"
 
@@ -55,10 +53,13 @@ plugins=(extract)
 source ~/.oh-my-zsh/oh-my-zsh.sh
 EOF
 
-# 设置 zsh 为默认 shell，并且切换到 zsh
-chsh -s $(which zsh) 
+echo > ~/.bashrc << EOF
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+EOF
 
-zsh && source ~/.zshrc
+source ~/.bashrc && locale-gen
 
 cat > /etc/ssh/sshd_config <<EOF
 Port 925
@@ -95,3 +96,6 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZuMeivqcvRV+KkjD+RLPztGUGecAqouWbo2
 passwd -d root
 
 systemctl restart sshd
+
+# 设置 zsh 为默认 shell，并且切换到 zsh
+chsh -s $(which zsh) 

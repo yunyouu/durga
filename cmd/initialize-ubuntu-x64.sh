@@ -40,8 +40,6 @@ cat > /etc/locale.gen << EOF
 en_US.UTF-8 UTF-8
 EOF
 
-locale-gen
-
 cat > ~/.zshrc << EOF
 export ZSH="/root/.oh-my-zsh"
 
@@ -57,9 +55,13 @@ plugins=(extract)
 source ~/.oh-my-zsh/oh-my-zsh.sh
 EOF
 
-# 设置 zsh 为默认 shell，并且切换到 zsh
-chsh -s $(which zsh)
-zsh && source ~/.zshrc
+echo > ~/.bashrc << EOF
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+EOF
+
+source ~/.bashrc && locale-gen
 
 cat > /etc/ssh/sshd_config <<EOF
 Include /etc/ssh/sshd_config.d/*.conf
@@ -93,7 +95,10 @@ mkdir -p ~/.ssh &&  chmod 700 ~/.ssh
 touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZuMeivqcvRV+KkjD+RLPztGUGecAqouWbo2JYUHdS8oIZi65pHk3KlCTeqr/0LxKx4+8kNxUx12O5C08jij8IktrWdVsQ36j+wcfLH2eEco0JyJ6ijcmD5g8911yP5m8gMGpg8++SL41m9xtMG/bNxfvceMhdd6U1tSiFsFNklL0F0AN9Olvg5Or6lw5juRMhEV7L2AxxeCjvkNn+g5M5MaY2shCaTUw8cue9fo/bY2PS9WF6bf5/CRMrU83qSS7/CE6BP/IUWjw5/uPFP7GogMXPMt8D9W8yhleSkgXWJelZT7CQ58v9hCx9lOXwdg4rPhCKFn94GVsFk4KTuTtP root@self-host" > ~/.ssh/authorized_keys
 
+systemctl restart sshd
+
 # 删除 root 账号密码并且只允许密钥登录
 passwd -d root
 
-systemctl restart sshd
+# 设置 zsh 为默认 shell，并且切换到 zsh
+chsh -s $(which zsh)
