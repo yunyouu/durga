@@ -21,7 +21,7 @@ wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/initialize-ubu
 ```
 
 #### 📓 常用的 `VIM` 配置整理到一起，直接本地覆盖使用
-- github raw 下载
+- 下载覆盖本地 vim 配置文件
 ```
-wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/initialize-vim-x64.sh | bash
+curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
 ```
