@@ -27,7 +27,6 @@ apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 # 安装 vim 并且使用预制好的配置文件
 apt install vim -y
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
 
 # 安装 zsh 以及配置 ohmyzsh
