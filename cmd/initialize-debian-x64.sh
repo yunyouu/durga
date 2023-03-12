@@ -10,7 +10,7 @@ curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /
 
 
 # 安装常用的扩展应用
-apt install curl unzip git net-tools htop neofetch lrzsz tmux -y
+apt install curl unzip git net-tools htop neofetch lrzsz -y
 
 # 安装 docker 以及 docker-compose
 mkdir -p /etc/apt/keyrings
@@ -24,8 +24,11 @@ apt update && apt install docker-ce docker-ce-cli containerd.io docker-compose-p
 
 # 安装 vim 并且使用预制好的配置文件
 apt install vim -y
-
 curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
+
+# 安装 tmux 并且使用预制好的配置文件
+apt install tmux -y
+curl -o ~/.tmux.conf https://raw.githubusercontent.com/yunyouu/durga/main/config/.tmux.conf
 
 # 安装 zsh 以及配置 ohmyzsh
 apt install zsh -y

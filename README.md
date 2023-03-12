@@ -25,3 +25,9 @@ wget -O- https://raw.githubusercontent.com/yunyouu/durga/main/cmd/initialize-ubu
 ```
 curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
 ```
+
+#### 📓 常用的 `TMUX` 配置整理到一起，直接本地覆盖使用
+- 下载覆盖本地 vim 配置文件
+```
+curl -o ~/.tmux.conf https://raw.githubusercontent.com/yunyouu/durga/main/config/.tmux.conf
+```
