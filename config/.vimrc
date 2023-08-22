@@ -8,8 +8,6 @@ set history=2000
 filetype on
 " 允许插件
 filetype plugin on
-" 启动自动补全
-filetype plugin indent on
 
 " 文件修改之后自动载入
 set autoread
