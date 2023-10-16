@@ -1,0 +1,8 @@
+FROM alpine:3
+
+ENV SKYWALKING_VERSION=9.0.0
+
+ADD https://dlcdn.apache.org/skywalking/java-agent/${SKYWALKING_VERSION}/apache-skywalking-java-agent-${SKYWALKING_VERSION}.tgz /
+
+RUN tar -zxvf /apache-skywalking-java-agent-${SKYWALKING_VERSION}.tgz && \
+    rm -rf /apache-skywalking-java-agent-${SKYWALKING_VERSION}.tgz
