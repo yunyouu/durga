@@ -4,11 +4,6 @@ DEBIAN_FRONTEND="noninteractive" apt update -y && DEBIAN_FRONTEND="noninteractiv
 # 安装系统使用基础包
 apt install apt-transport-https ca-certificates gnupg lsb-release sudo debian-keyring debian-archive-keyring apt-transport-https -y
 
-# 添加 caddy 源
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
-
-
 # 安装常用的扩展应用
 apt install curl unzip git net-tools htop neofetch lrzsz -y
 
@@ -25,10 +20,6 @@ apt update && apt install docker-ce docker-ce-cli containerd.io docker-compose-p
 # 安装 vim 并且使用预制好的配置文件
 apt install vim -y
 curl -o ~/.vimrc https://raw.githubusercontent.com/yunyouu/durga/main/config/.vimrc
-
-# 安装 tmux 并且使用预制好的配置文件
-apt install tmux -y
-curl -o ~/.tmux.conf https://raw.githubusercontent.com/yunyouu/durga/main/config/.tmux.conf
 
 # 安装 zsh 以及配置 ohmyzsh
 apt install zsh -y
@@ -82,12 +73,6 @@ timedatectl set-timezone 'Asia/Shanghai'
 
 # 最后清理一下包
 apt clean -y && apt autoremove --purge -y
-
-# 添加 BBR 模块
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-
-sysctl -p
 
 # 写入个人用的公玥
 mkdir -p ~/.ssh &&  chmod 700 ~/.ssh
